@@ -70,7 +70,8 @@ async def anti_pm_handler(client: Client, message: Message):
  •
 ╰───❰ He will be back please wait ❱
 
-⚠️ᵀʰⁱˢ ⁱˢ ᵃⁿ ᵃᵘᵗᵒᵐᵃᵗᵉᵈ ᵐᵉˢˢᵃᵍᵉ ᵇʸ ᵃⁿ ᵃˢˢⁱˢᵗᵃⁿᵗ⚠️"""
+⚠️ᵀʰⁱˢ ⁱˢ ᵃⁿ ᵃᵘᵗᵒᵐᵃᵗᵉᵈ ᵐᵉˢˢᵃᵍᵉ ᵇʸ ᵃⁿ ᵃˢˢⁱˢᵗᵃⁿᵗ⚠️
+"""
     if db.get("core.antipm", "spamrep", False):
         await client.invoke(functions.messages.ReportSpam(peer=user_info))
     if db.get("core.antipm", "block", False):
