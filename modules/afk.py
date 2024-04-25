@@ -77,7 +77,10 @@ async def collect_afk_messages(bot: Client, message: Message):
 
         if GetChatID(message) not in CHAT_TYPE:
             text = (
-                f"<b>Beep boop. This is an automated message.\n"
+                f"╭═══════════════════╮
+         ✧ 𝗘𝗸𝗮𝗶𝘃𝗮'𝘀 𝗦𝗲𝗰𝘂𝗿𝗶𝘁𝘆 ✧
+╰═══════════════════╯\n\n"
+                f"<b>This is an automated message.\n"
                 f"I am not available right now.\n"
                 f"Last seen: {last_seen}\n"
                 f"Reason: <code>{AFK_REASON.upper()}</code>\n"
