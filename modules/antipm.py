@@ -53,14 +53,24 @@ async def anti_pm_handler(client: Client, message: Message):
     user = await client.get_users(id)
     u_f = user.first_name
     user_info = await client.resolve_peer(message.chat.id)
-    default_text = f"""<b>Hello, {u_f}!
-This is the Assistant Of {u_n}.</b>
-<i>My Boss is away or busy as of now, You can wait for him to respond.
-Do not spam further messages else I may have to block you!</i>
+    default_text = f"""╭═══════════════════╮
+         ✧ 𝗘𝗸𝗮𝗶𝘃𝗮'𝘀 𝗦𝗲𝗰𝘂𝗿𝗶𝘁𝘆 ✧
+╰═══════════════════╯
+╰• ᴏᴡɴᴇʀ » {u_n}
 
-<b>This is an automated message by the assistant.</b>
-<b><u>Currently You Have <code>{warns}</code> Warnings.</u></b>
-"""
+• ᴛʜɪs ɪs Z++ ᴘᴍ sᴇᴄᴜʀɪᴛʏ 🛡️
+➖➖➖➖➖➖➖➖➖➖➖ 
+    ʜᴇʏ {u_f} 🥀
+    ɪғ ʏᴏᴜ sᴘᴀᴍ ʜᴇʀᴇ ᴡɪᴛʜᴏᴜᴛ ᴍʏ
+    ᴍᴀꜱᴛᴇʀ's ᴀᴘᴘʀᴏᴠᴀʟ ʏᴏᴜ ᴡɪʟʟ ʙᴇ
+    ʙʟᴏᴄᴋᴇᴅ 
+⚝  ᴡᴀʀɴ ʟɪᴍɪᴛs » 5      
+⚝  ʏᴏᴜʀ ᴡᴀʀɴs » <code>{warns}</code>
+➖➖➖➖➖➖➖➖➖➖➖
+ •
+╰───❰ He will be back please wait ❱
+
+⚠️ᵀʰⁱˢ ⁱˢ ᵃⁿ ᵃᵘᵗᵒᵐᵃᵗᵉᵈ ᵐᵉˢˢᵃᵍᵉ ᵇʸ ᵃⁿ ᵃˢˢⁱˢᵗᵃⁿᵗ⚠️"""
     if db.get("core.antipm", "spamrep", False):
         await client.invoke(functions.messages.ReportSpam(peer=user_info))
     if db.get("core.antipm", "block", False):
@@ -80,7 +90,7 @@ Do not spam further messages else I may have to block you!</i>
             db.set("core.antipm", "warns", m_n_n)
     
         if message_counts[user_id] > pm_limit:
-            await client.send_message(message.chat.id, f"<b>Ehm...! That was your Last warn, Bye Bye see you L0L</b>")
+            await client.send_message(message.chat.id, f"<b>Mana kia tha na spam mat kr ab block ho☠️</b>")
             await client.block_user(user_id)
             del message_counts[user_id]
             db.set("core.antipm", "warns", 0)
